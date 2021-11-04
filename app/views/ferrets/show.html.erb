@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<h1> <%= @ferret.title%> </h1>
+<h5> <%= @ferret.genre.name%> </h5>
+
+<p>
+  <%= @ferret.description %>
+</p>
+
+<%= link_to 'Edit', edit_ferret_path(@ferret) %> |
+<%= link_to 'Back', ferrets_path %>

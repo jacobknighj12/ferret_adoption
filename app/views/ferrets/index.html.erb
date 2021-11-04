@@ -1,2 +1,26 @@
 <h1>Ferrets#index</h1>
 <p>Find me in app/views/ferrets/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+ 
+ <div class="container">
+ <h1> ferrets! </h1>
+  <div class="card-deck"> 
+  <% @ferrets.each do |ferret| %> 
+      
+      <div class="card mb-4" style="min-width: 18rem;">
+      <%= image_tag ferret.picture, class: "card-img-top" if ferret.picture.attached? %>
+        <div class="card-body">
+            <h5 class="card-title"><%=ferret.name%></h5>
+            
+            <p class="card-text mt-2"><%=ferret.disposition %></p>
+            <p class="card-text"><small class="text-muted">age <%=ferret.age%></small></p>
+            <%# <%=link_to 'Edit', edit_ferret_path(ferret), class: "btn btn-warning"%>
+            <%# <%=link_to 'Delete', ferret_path(ferret), class: "btn btn-danger", method: "delete", data: { confirm: "Are you sure?" }%>
+        </div>
+      </div> 
+  
+  <%end%> 
+  </div> 
+  </div>
+
+<%= link_to 'New ferret', ferrets_new_path %>

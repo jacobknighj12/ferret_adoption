@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+.form_wrapper {
+  display: flex;
+
+  justify-content: auto;
+}

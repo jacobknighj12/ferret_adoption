@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :ferrets
   root to: "ferrets#index"
+  get "/ferrets/new", to: "ferret#new"
+  get "/ferrets/:id", to: "ferret#show"
+  post "/ferrets/create", to: "ferret#create"
   get "/ferrets", to: "ferrets#index"
+  get "/users", to: "users#index"
+
 end
