@@ -1,6 +1,7 @@
 class FerretsController < ApplicationController
   before_action :authenticate_user!, except: %i[:index :show]
   before_action :set_ferret, only: [:show, :edit, :update, :destroy]
+  
   # current_user :set_user
 
   # GET /ferrets
@@ -13,6 +14,25 @@ class FerretsController < ApplicationController
   # GET /ferrets/1.json
   def show # show a single ferret
     @ferret = Ferret.find_by(id: params[:id])
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email: "jacobknighj@gmail.com",
+      line_items: [{
+        name: @ferret.name,
+        # disposition: @ferret.disposition,
+        # image: @ferret.picture,
+        amount: 100,
+        currency: 'aud',
+        quantity: 1,
+      }],
+      payment_intent_data: {
+        metadata: {
+          ferret_id: @ferret.id
+        }
+      },
+      success_url: "#{root_url}payments/success?eventId=#{@ferret.id}",
+      cancel_url: "#{root_url}ferrets"
+    )
   end
 
   # GET /ferrets/new
