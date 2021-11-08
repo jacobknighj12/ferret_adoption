@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
-<h1> <%= @ferret.title%> </h1>
-<h5> <%= @ferret.genre.name%> </h5>
+<h1> <%= @ferret.name%> </h1>
+<h5> <%= @ferret.age%> </h5>
 
 <p>
-  <%= @ferret.description %>
+  <%= @ferret.disposition %>
 </p>
 
 <%= link_to 'Edit', edit_ferret_path(@ferret) %> |
