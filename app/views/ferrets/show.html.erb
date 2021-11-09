@@ -3,17 +3,18 @@
 <h5> <%= @ferret.age%> </h5>
 
 <p>
-  <%= @ferret.disposition %>
-  <%= p @ferret.picture %>
+sup dis is session: <%= p session.id%>
+
+  <%# <%= @ferret.disposition %> %>
+  
 </p>
-<button data-stripe="payment">Adopt ferret! <%= number_to_currency(0)%></button>
+<button data-stripe="payment">Adopt ferret! <%= number_to_currency(0) %></button>
 <%= link_to 'back', ferrets_path%>
+<script src="https://js.stripe.com/v3/"></script>
 <script>
   document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
     const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-    stripe.redirectToCheckout({
-      sessionId: "<%= @session_id %>"
-    });
+    stripe.redirectToCheckout({ sessionId: "<%= @session_id %>" });
   });
   </script>
 <%= link_to 'Edit', edit_ferret_path(@ferret) %> |

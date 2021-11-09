@@ -14,13 +14,14 @@ class FerretsController < ApplicationController
   # GET /ferrets/1.json
   def show # show a single ferret
     @ferret = Ferret.find_by(id: params[:id])
+    @this_ferret = @ferret.id
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email: "jacobknighj@gmail.com",
       line_items: [{
         name: @ferret.name,
         # disposition: @ferret.disposition,
-        # image: @ferret.picture,
+        images: [@ferret.picture],
         amount: 100,
         currency: 'aud',
         quantity: 1,
@@ -33,6 +34,7 @@ class FerretsController < ApplicationController
       success_url: "#{root_url}payments/success?eventId=#{@ferret.id}",
       cancel_url: "#{root_url}ferrets"
     )
+    @session_id = session.id
   end
 
   # GET /ferrets/new
