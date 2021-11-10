@@ -5,13 +5,11 @@ class FerretsController < ApplicationController
   # current_user :set_user
 
   # GET /ferrets
-  # GET /ferrets.json
   def index
     @ferrets = Ferret.all
   end
 
   # GET /ferrets/1
-  # GET /ferrets/1.json
   def show # show a single ferret
     @ferret = Ferret.find_by(id: params[:id])
     @this_ferret = @ferret.id
@@ -41,9 +39,6 @@ class FerretsController < ApplicationController
   #User must exsist so finding the user from here when creating a new ferret
   def new
     @ferret = Ferret.new
-    @user
-    
-      
   end
 
   # GET /ferrets/1/edit
@@ -75,7 +70,7 @@ class FerretsController < ApplicationController
         format.html { redirect_to @ferret, notice: 'ferret was successfully updated.' }
         format.json { render :show, status: :ok, location: @ferret }
       else
-        # set_genres
+        
         format.html { render :edit }
         format.json { render json: @ferret.errors, status: :unprocessable_entity }
       end
@@ -103,9 +98,6 @@ class FerretsController < ApplicationController
       params.require(:ferret).permit(:name, :age, :disposition, :picture)
     end
 
-    # def set_genres
-    #   @genres = Genre.all
-    # end 
 end
 
  
