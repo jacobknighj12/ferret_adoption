@@ -98,6 +98,7 @@ class FerretsController < ApplicationController
       params.require(:ferret).permit(:name, :age, :disposition, :picture)
     end
 
+    
 end
 
  
