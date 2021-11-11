@@ -13,7 +13,7 @@ sup dis is session: <%= p session.id%>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-    const stripe = Stripe("<%= Stripe.api_key %>");
+    const stripe = Stripe("<%= Stripe.api_key_public %>");
     stripe.redirectToCheckout({ sessionId: "<%= @session_id %>" });
   });
   </script>
