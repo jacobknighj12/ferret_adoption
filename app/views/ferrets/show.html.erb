@@ -13,7 +13,7 @@ sup dis is session: <%= p session.id%>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-    const stripe = Stripe("<%= Rails.credentials.stripe(:public_key) %>");
+    const stripe = Stripe("<%= Rails.credentials.stripe[:public_key] %>");
     stripe.redirectToCheckout({ sessionId: "<%= @session_id %>" });
   });
   </script>
