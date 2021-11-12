@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get "/ferrets", to: "ferrets#index"
   get "/users", to: "users#index"
   get "/about", to: "about#about"
+  get "/about/fees", to: "about#fees"
+  get "/about/wait_list", to: "about#wait_list"
   get "/payments/success", to: "payments#success"
 end

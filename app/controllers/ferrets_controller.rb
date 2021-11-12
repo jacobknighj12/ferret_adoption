@@ -1,5 +1,5 @@
 class FerretsController < ApplicationController
-  before_action :authenticate_user!
+  
   before_action :set_ferret, only: [:show, :edit, :update, :destroy]
   # before_action :current_user, :set_user
   # GET /ferrets
@@ -9,6 +9,7 @@ class FerretsController < ApplicationController
 
   # GET /ferrets/1
   def show # show a single ferret
+    
     @ferret = Ferret.find_by(id: params[:id])
     @this_ferret = @ferret.id
     session = Stripe::Checkout::Session.create(
@@ -36,17 +37,20 @@ class FerretsController < ApplicationController
   # GET /ferrets/new
   #User must exsist so finding the user from here when creating a new ferret
   def new
+    authenticate_user!
     @ferret = Ferret.new
   end
   def about
   end
   # GET /ferrets/1/edit
   def edit
+    authenticate_user!
   end
 
   # POST /ferrets
   # POST /ferrets.json
   def create
+    authenticate_user!
     @ferret = Ferret.new(ferret_params)
 
     respond_to do |format|
@@ -64,6 +68,7 @@ class FerretsController < ApplicationController
   # PATCH/PUT /ferrets/1
   # PATCH/PUT /ferrets/1.json
   def update
+    authenticate_user!
     respond_to do |format|
       if @ferret.update(ferret_params)
         format.html { redirect_to @ferret, notice: 'ferret was successfully updated.' }
@@ -79,6 +84,7 @@ class FerretsController < ApplicationController
   # DELETE /ferrets/1
   # DELETE /ferrets/1.json
   def destroy
+    authenticate_user!
     @ferret.destroy
     respond_to do |format|
       format.html { redirect_to ferrets_url, notice: 'ferret was successfully removed.' }

@@ -1,6 +1,9 @@
 class AboutController < ApplicationController
-    before_action :authenticate_user!
+    
     def about
-
+    end
+    def wait_list
+    end
+    def fees
     end
 end
