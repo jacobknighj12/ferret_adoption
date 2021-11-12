@@ -1,1 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
+.alert {
+  padding: 0%;
+}
+.notice {
+  padding: 0%;
+}
+.nav-greeting {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.card-body {
+  background-color: rgb(224, 224, 224);
+  text-decoration: none;
+}

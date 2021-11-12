@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   post "/ferrets/create", to: "ferret#create"
   get "/ferrets", to: "ferrets#index"
   get "/users", to: "users#index"
-  
+  get "/about", to: "about#about"
   get "/payments/success", to: "payments#success"
 end

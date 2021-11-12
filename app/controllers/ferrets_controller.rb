@@ -1,9 +1,7 @@
 class FerretsController < ApplicationController
-  before_action :authenticate_user!, except: %i[:index :show]
+  before_action :authenticate_user!
   before_action :set_ferret, only: [:show, :edit, :update, :destroy]
-  
-  # current_user :set_user
-
+  # before_action :current_user, :set_user
   # GET /ferrets
   def index
     @ferrets = Ferret.all
@@ -40,7 +38,8 @@ class FerretsController < ApplicationController
   def new
     @ferret = Ferret.new
   end
-
+  def about
+  end
   # GET /ferrets/1/edit
   def edit
   end
@@ -92,7 +91,7 @@ class FerretsController < ApplicationController
     def set_ferret
       @ferret = Ferret.find(params[:id])
     end
-
+    
     # Only allow a list of trusted parameters through.
     def ferret_params
       params.require(:ferret).permit(:name, :age, :disposition, :picture)

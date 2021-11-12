@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  
 <div class="form_wrapper">
   <div class="field">
     <%= form.label :name %>
@@ -31,9 +32,6 @@
     <%= form.label :picture %>
     <%= form.file_field :picture, accept: "image/png, img/jpg, image/jpeg" %>
   </div>
-<p>this user:<%= @name %> </p>
-<%# <%=p @current_user #attempting to print current user from applicaiton controller, want to be able to assign a user to the ferret created, may need to remake ferret for reffrence%>  %>
-
   <div class="actions">
     <%= form.submit %>
   </div>
