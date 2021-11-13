@@ -16,8 +16,10 @@
             
             <p class="card-text mt-2"><%=ferret.disposition %></p>
             <p class="card-text"><small class="text-muted">age <%=ferret.age%></small></p>
+            <% if user_signed_in?%>
             <%=link_to 'Edit', edit_ferret_path(ferret), class: "btn" %>
             <%=link_to 'Delete', ferret_path(ferret), class: "btn", method: "delete", data: { confirm: "Are you sure?" } %>
+            <% end%>
         </div>
       </div> 
   
