@@ -1,4 +1,4 @@
-class  < ApplicationPolicy
+class FerretPolicy  < ApplicationPolicy
     def create?
         user.admin? || user.id == record.ferret.user.id
     end
