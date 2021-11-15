@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%# favicon render is a bit of a mess, was following a guide realfavicongenerator.net had and it kinda worked but not really sure../%>
-    <%= render 'application/favicon' %>
+    <%# favicon render is a bit of a mess, was following a guide realfavicongenerator.net had and it kinda worked but not really sure..
+     it told me to render it with an = but after removing it, it worked when it had it didnt work/%>
+    <% render 'application/favicon' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <%# these below tags are for notices with the login or error messages that will display through devise %>
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-   
+   <%# rendering the partial navbar here for each page %>
   <%= render "shared/navbar"%>
     <%= yield %>
   </body>
