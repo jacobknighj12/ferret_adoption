@@ -37,6 +37,7 @@ class FerretsController < ApplicationController
   # GET /ferrets/new
   #User must exsist so finding the user from here when creating a new ferret
   def new
+    
     authenticate_user!
     @ferret = Ferret.new
   end
@@ -44,12 +45,15 @@ class FerretsController < ApplicationController
   end
   # GET /ferrets/1/edit
   def edit
+    @ferret = Ferret.find_by(id: params[:id])
     authenticate_user!
+    authorize @ferret
   end
 
   # POST /ferrets
   # POST /ferrets.json
   def create
+    
     authenticate_user!
     @ferret = Ferret.new(ferret_params)
 
@@ -68,6 +72,7 @@ class FerretsController < ApplicationController
   # PATCH/PUT /ferrets/1
   # PATCH/PUT /ferrets/1.json
   def update
+    authorize @ferret
     authenticate_user!
     respond_to do |format|
       if @ferret.update(ferret_params)
@@ -84,6 +89,7 @@ class FerretsController < ApplicationController
   # DELETE /ferrets/1
   # DELETE /ferrets/1.json
   def destroy
+    authorize @ferret
     authenticate_user!
     @ferret.destroy
     respond_to do |format|
@@ -100,7 +106,7 @@ class FerretsController < ApplicationController
     
     # Only allow a list of trusted parameters through.
     def ferret_params
-      params.require(:ferret).permit(:name, :age, :disposition, :picture)
+      params.require(:ferret).permit(:name, :age, :disposition, :picture, :user_id)
     end
 
     

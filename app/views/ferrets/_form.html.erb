@@ -32,6 +32,11 @@
     <%= form.label :picture %>
     <%= form.file_field :picture, accept: "image/png, img/jpg, image/jpeg" %>
   </div>
+  <div class="field">
+  <%# this field is filling in the id feild however it is editable currently, will want to change later unsure how to fix %>
+  <%= form.label :user_id %>
+  <%= form.text_area :user_id, :value => current_user.id%>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
