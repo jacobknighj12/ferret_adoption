@@ -1,13 +1,9 @@
 
-<p id="notice"><%= notice %></p>
- 
  <div class="container">
- 
  <h1>Ferrets looking for a home!</h1>
   <div class="card-deck"> 
   <%# for each ferret it will display a card with the detials of that ferret %>
   <% @ferrets.each do |ferret| %> 
-      
       <div class="card" style="min-width: 10rem;">
       <%# if a ferret.picture is attached it will display with the image_tag %>
       <%= image_tag ferret.picture, class: "card-img" if ferret.picture.attached? %>
