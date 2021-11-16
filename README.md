@@ -72,3 +72,4 @@ https://github.com/jacobknighj12/ferret_adoption
   R20 Describe the way tasks are allocated and tracked in your project
   The tasks are determined by how important they are to the MVP initally going through a planned stage, a in progress stage, to then rest in a completed stage or into a dropped stage if the
   step is not compatable or completable in the frame of time given. importance is from top to bottom in the columns
+https://trello.com/b/8XK2H0fb/marketplace-project
