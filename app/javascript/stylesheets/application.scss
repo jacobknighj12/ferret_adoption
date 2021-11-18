@@ -19,7 +19,14 @@
 .container-fluid {
   border: grey;
 }
-.container {
-  flex-flow: column wrap;
+// .container {
+//   flex-flow: column wrap;
   
+// }
+.card-deck{
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: space-evenly;
 }
