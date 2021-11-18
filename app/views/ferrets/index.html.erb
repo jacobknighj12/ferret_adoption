@@ -1,26 +1,25 @@
-
- <div class="container">
- <% if user_signed_in?%>
-<%= link_to 'New ferret', ferrets_new_path %>
-<%end%> 
- <h1>Ferrets looking for a home!</h1>
-  <div class="card-deck"> 
-  <%# for each ferret it will display a card with the detials of that ferret %>
-  <% @ferrets.each do |ferret| %> 
+<div class="container">
+  <% if user_signed_in?%>
+    <%= link_to 'New ferret', ferrets_new_path %>
+  <%end%>
+  <h1>Ferrets looking for a home!</h1>
+  <div class="card-deck">
+    <%# for each ferret it will display a card with the detials of that ferret %>
+    <% @ferrets.each do |ferret| %>
       <div class="card" style="min-width: 10rem;">
-      <%# if a ferret.picture is attached it will display with the image_tag %>
-      <%= image_tag ferret.picture, class: "card-img" if ferret.picture.attached? %>
+        <%# if a ferret.picture is attached it will display with the image_tag %>
+        <%= image_tag ferret.picture, class: "card-img" if ferret.picture.attached? %>
         <div class="card-body">
-            <h5 class="card-title"><%=link_to ferret.name, ferret_path(ferret.id) %></h5>
-            <p class="card-text mt-2"><%=ferret.disposition %></p>
-            <p class="card-text"><small class="text-muted">age <%=ferret.age%></small></p>
-            <% if user_signed_in?%>
+          <h5 class="card-title"><%=link_to ferret.name, ferret_path(ferret.id) %></h5>
+          <p class="card-text mt-2"><%=ferret.disposition %></p>
+          <p class="card-text"><small class="text-muted">age <%=ferret.age%></small></p>
+          <% if user_signed_in?%>
             <%=link_to 'Edit', edit_ferret_path(ferret), class: "btn" %>
             <%=link_to 'Delete', ferret_path(ferret), class: "btn", method: "delete", data: { confirm: "Are you sure?" } %>
-            <% end%>
+          <% end%>
         </div>
-      </div> 
-  <br>
-  <%end%> 
-  </div> 
+      </div>
+      <br>
+    <%end%>
   </div>
+</div>

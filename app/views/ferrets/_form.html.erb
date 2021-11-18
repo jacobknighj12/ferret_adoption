@@ -2,7 +2,6 @@
   <% if ferret.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ferret.errors.count, "error") %> prohibited this ferret from being saved:</h2>
-
       <ul>
         <% ferret.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,35 +9,30 @@
       </ul>
     </div>
   <% end %>
-  
-<div class="form_wrapper">
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.text_field :age %>
-  </div>
-
-  <div class="field">
-    <%= form.label :disposition %>
-    <%= form.text_area :disposition %>
-  </div>
-
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.file_field :picture, accept: "image/png, img/jpg, image/jpeg" %>
-  </div>
-  <div class="field">
-  <%# this field is filling in the id feild however it is editable currently, will want to change later unsure how to fix %>
-  <%= form.label :user_id %>
-  <%= form.text_area :user_id, :value => current_user.id%>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <div class="form_wrapper">
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label :age %>
+      <%= form.text_field :age %>
+    </div>
+    <div class="field">
+      <%= form.label :disposition %>
+      <%= form.text_area :disposition %>
+    </div>
+    <div class="field">
+      <%= form.label :picture %>
+      <%= form.file_field :picture, accept: "image/png, img/jpg, image/jpeg" %>
+    </div>
+    <div class="field">
+      <%# this field is filling in the id feild however it is editable currently, will want to change later unsure how to fix %>
+      <%= form.label :user_id %>
+      <%= form.text_area :user_id, :value => current_user.id%>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

@@ -85,13 +85,15 @@ R8 Why is it a problem that needs solving?
 as stated above the only site used hasn't been updated for several years and it needs to be a controlled marketplace with oversight
 due to breeders of ferrets needing to be specialized otherwise they can and do cause disfiguration and disease through the population with
 inbreeding and malnutrition to ferrets produced for gumtree, etc..
-please refer to slides for more detailed information on the problem attempted to solve.
+however the main point is to mitigate maintainance and micro managment from the assigned admins and giving them a place to send their
+interested persons to familiarize themselves with the basics then apply, however that being said there will most probably be a wait list as there are more
+people willing to adopt than there are ferrets.
+Please refer to slides for more detailed information on the problem attempted to solve.
 
 R9 A link (URL) to your deployed app (i.e. website)
 https://ferret-adoption-marketplace.herokuapp.com/ (upload is crashing unsure of why)
 R10 A link to your GitHub repository (repo).
 https://github.com/jacobknighj12/ferret_adoption
-
 
   R11 Description of your marketplace app (website), including:
 - Purpose
@@ -100,6 +102,8 @@ and wanting to give to the community.
 - Functionality / features
 functionality of the site currently is a database serving a list of ferrets to guests, while providing detailed information on ferrets, their ownership and how to care for them.
 meanwhile serving for vendors to have a place to post ferrets for adoption, and being able to gather applicants for adoption in a adoption list that they can veiw update and change to their needs.
+allowing for vendors to easily manage, allot and assess how many people are in the wait list, who is familiar with ferrets and has the appropriate knowledge, space and time for the 
+critters.
 - Sitemap
 refer to sitemap
 ![sitemap](docs/sitemap.png)
@@ -134,6 +138,7 @@ these groups are gennerally located in east melbourne, however cover most of vic
   R16 Detail any third party services that your app will use
   The third party services in use are AWS(S3) bucket image hosting and Heroku to serve and host the site currently and
   Stripe for all transactions between parties.
+  Google form is embedded in the waitinglist page for guests to apply for specific ferrets and to get into contact with the vendors if they have adoptable ferrets available.
   No other 3rd party services have been identified or implemented as of currently.
 
   R17 Describe your projects models in terms of the relationships (active record associations) they have with each other
