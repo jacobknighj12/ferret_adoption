@@ -1,5 +1,8 @@
 
  <div class="container">
+ <% if user_signed_in?%>
+<%= link_to 'New ferret', ferrets_new_path %>
+<%end%> 
  <h1>Ferrets looking for a home!</h1>
   <div class="card-deck"> 
   <%# for each ferret it will display a card with the detials of that ferret %>
@@ -21,6 +24,3 @@
   <%end%> 
   </div> 
   </div>
-<% if user_signed_in?%>
-<%= link_to 'New ferret', ferrets_new_path %>
-<%end%> 
