@@ -7,22 +7,21 @@
       <h5 class="card-title "><%=link_to @ferret.name, ferret_path(@ferret.id) %></h5>
       <p class="card-text mt-2"><%=@ferret.disposition %></p>
       <p class="card-text"><small class="text-muted">age <%=@ferret.age%></small></p>
-      <%# <p class="card-text"><small class="text-muted">Adopt from: <%= p @ferret.user_id.username%></small></p>
-  %>
-  <%# want to try and show the username of the user_id from the ferret, how to do? %>
-  <% if user_signed_in?%>
-    <%=link_to 'Edit', edit_ferret_path(@ferret), class: "btn" %>|
-    <%=link_to 'Delete', ferret_path(@ferret), class: "btn", method: "delete", data: { confirm: "Are you sure?" } %>|
-  <% end%>
-  <%= link_to 'Back', ferrets_path, class: "btn" %>
-  <button data-stripe="payment">Adopt! </button>
-  <script src="https://js.stripe.com/v3/"></script>
-  <script>
-    document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
-      const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-      stripe.redirectToCheckout({ sessionId: "<%= @session_id %>" });
-    });
-  </script>
-</div>
-</div>
+      <p class="card-text"><small class="text-muted">Adopt from: <%=@ferret.user&.username%></small></p>
+      <%# want to try and show the username of the user_id from the ferret, how to do? %>
+      <% if user_signed_in?%>
+        <%=link_to 'Edit', edit_ferret_path(@ferret), class: "btn" %>|
+        <%=link_to 'Delete', ferret_path(@ferret), class: "btn", method: "delete", data: { confirm: "Are you sure?" } %>|
+      <% end%>
+      <%= link_to 'Back', ferrets_path, class: "btn" %>
+      <button data-stripe="payment">Adopt! </button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+          const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+          stripe.redirectToCheckout({ sessionId: "<%= @session_id %>" });
+        });
+      </script>
+    </div>
+  </div>
 </div>

@@ -40,6 +40,7 @@ class FerretsController < ApplicationController
     
     authenticate_user!
     @ferret = Ferret.new
+    # @ferret = Ferret.new
   end
   def about
   end
