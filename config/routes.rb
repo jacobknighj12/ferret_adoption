@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :items
   devise_for :users
   resources :ferrets
   devise_scope :user do
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   root to: "ferrets#index"
   get "/ferrets/new", to: "ferret#new"
   get "/ferrets/:id", to: "ferret#show"
+  get "/ferrets/adopted", to: "ferrets#adopted"
   post "/ferrets/create", to: "ferret#create"
   get "/ferrets", to: "ferrets#index"
   get "/users", to: "users#index"

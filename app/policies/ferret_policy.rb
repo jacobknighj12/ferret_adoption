@@ -1,14 +1,17 @@
 class FerretPolicy < ApplicationPolicy
     def create?
-        user.admin? || user.id == record.user_id
+        user.role == "admin" || user.id == record.user_id
     end
     def edit?
-        user.admin? || user.id == record.user_id
+        user.role == "admin" || user.id == record.user_id
     end
     def update?
-        user.admin? || user.id == record.user_id
+        user.role == "admin" || user.id == record.user_id
     end
     def destroy?
-        user.admin? || user.id == record.user_id
-      end
+        p user
+        p @current_user
+        p user.role
+        user.role == "admin" || user.id == record.user_id
+    end
 end

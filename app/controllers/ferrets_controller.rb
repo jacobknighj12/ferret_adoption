@@ -5,8 +5,13 @@ class FerretsController < ApplicationController
   # GET /ferrets
   def index
     @ferrets = Ferret.all
+    @ferret = Ferret.find_by(id: params[:id])
+    
   end
-
+  # def adopted
+  #   @ferrets = Ferret.all
+    
+  # end
   # GET /ferrets/1
   def show # show a single ferret
     
@@ -107,7 +112,7 @@ class FerretsController < ApplicationController
     
     # Only allow a list of trusted parameters through.
     def ferret_params
-      params.require(:ferret).permit(:name, :age, :disposition, :picture, :user_id)
+      params.require(:ferret).permit(:name, :age, :disposition, :picture, :user_id, :adopted)
     end
 
     

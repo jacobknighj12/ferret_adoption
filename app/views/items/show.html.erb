@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @item.content %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=@item.user&.username%>
+</p>
+<p>
+  <strong>category:</strong>
+  <%=@item.category_id%>
+</p>
+<p>number for categories: 1:toys 2:beds 3:food</p>
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
+<button data-stripe="payment">Purchase! </button>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+    const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+    stripe.redirectToCheckout({ sessionId: "<%= @session_id %>" });
+  });
+</script>
