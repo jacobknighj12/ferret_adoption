@@ -1,6 +1,4 @@
-# README OFFLINE VERSION
-
-- master key : f74aeef664d004203a9a077e870a34e5
+# README 
 
 - Ruby version
   ruby 2.7.2p137
@@ -50,11 +48,7 @@ rails db:create
 
 rails db:migrate
 
-(sorry lads no seed file here HOWEVER categories will need to be manually created
-1.toys
-2.beds
-3.food
-)
+rails db:seed(this should create categories and items)
 
 - Services (job queues, cache servers, search engines, etc.)
 
@@ -133,7 +127,6 @@ R11 Description of your marketplace app (website), including:
   R13 Wireframes for your app
   refer to wireframes here:
   ![Wireframe](docs/1.png)
-  ![Wireframe](docs/1.1.png)
   ![Wireframe](docs/2.png)
   ![Wireframe](docs/3.png)
   ![Wireframe](docs/4.png)
@@ -142,6 +135,9 @@ R11 Description of your marketplace app (website), including:
   ![Wireframe](docs/7.png)
   ![Wireframe](docs/8.png)
   ![Wireframe](docs/9.png)
+  ![Wireframe](docs/10.png)
+  ![Wireframe](docs/11.png)
+  ![Wireframe](docs/12.png)
 
   R14 An ERD for your app
   refer to erd file
