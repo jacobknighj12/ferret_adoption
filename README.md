@@ -38,8 +38,8 @@ devise
 pundit
 
 (cant find where bootstrap has ran off too... so not sure)
-)
 - Database creation
+Database is running with postgresql will need to run this to get app to work if not already running(mine needs to be started manually) sudo service postgresql restart
 
 rails db:create
 
