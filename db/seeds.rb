@@ -13,13 +13,12 @@
 #     Ferret.create(name: "hobbet", age: 2, disposition: "great boy", user_id: 6)
 #     Ferret.create(name: "hobbet", age: 2, disposition: "great boy", user_id: 6)
 # end dont know how to seed activestorage pictures...
- if categories == 0
+
     Category.create(id: 1, title: "toys")
     Category.create(id: 2, title: "beds")
     Category.create(id: 3, title: "food")
- end
- if items == 0
+
+
     Item.create(id: 1, title: "toy", content: "toy", price: 13, user_id: 1, category_id: 1)
     Item.create(id: 2, title: "bed", content: "bed", price: 11, user_id: 1, category_id: 2)
     Item.create(id: 3, title: "food", content: "food", price: 15, user_id: 1, category_id: 3)
- end
