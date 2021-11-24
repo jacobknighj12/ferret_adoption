@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
       line_items: [{
         name: @item.title,
         # disposition: @item.disposition,
-        amount: @item.price,
+        amount: 50,
         currency: "aud",
         quantity: 1,
       }],
