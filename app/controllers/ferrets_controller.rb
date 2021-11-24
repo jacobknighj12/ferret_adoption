@@ -4,7 +4,7 @@ class FerretsController < ApplicationController
   # before_action :current_user, :set_user
   # GET /ferrets
   def index
-    @ferrets = Ferret.all
+    @ferrets = Ferret.all.includes(:user)
     @ferret = Ferret.find_by(id: params[:id])
     
   end

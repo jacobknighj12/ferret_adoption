@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @items = Item.all.includes(:user)
+    # eager loading for category doesnt work, its asking for category.item_id for some reason
   end
 
   # GET /items/1 or /items/1.json
